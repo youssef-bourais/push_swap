@@ -1,6 +1,6 @@
 NAME = push_swap
 
-SRCS = push_swap.c instruction.c instruction_2.c instruction_utils.c parsing.c stacks.c stacks_utils.c error.c\
+SRCS = push_swap.c instruction.c instruction_2.c instruction_utils.c parsing.c stacks.c error.c push_swap_algorithm.c push_swap_algorithm_2.c\
 
 CC = cc
 

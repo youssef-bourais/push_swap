@@ -6,16 +6,16 @@
 /*   By: ybourais <ybourais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 12:36:14 by ybourais          #+#    #+#             */
-/*   Updated: 2023/03/01 12:37:11 by ybourais         ###   ########.fr       */
+/*   Updated: 2023/03/16 12:25:43 by ybourais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
-int	ft_atoi(char *str, int *handler)
+long	ft_atoi(char *str, int *handler)
 {
 	int	i;
-	int	res;
+	long	res;
 	int	sign;
 
 	i = 0;
@@ -39,13 +39,17 @@ int	ft_atoi(char *str, int *handler)
 	return (res * sign);
 }
 
-int ft_dublicat(int *arr, int len)
+int	ft_dublicat(int *arr, int len)
 {
-	int i = 0;
-	int count = 0;
+	int	i;
+	int	count;
+	int	j;
+
+	i = 0;
+	count = 0;
 	while (i < len)
 	{
-		int j = 0;
+		j = 0;
 		while (j < len)
 		{
 			if (arr[i] == arr[j])
@@ -59,26 +63,40 @@ int ft_dublicat(int *arr, int len)
 		i++;
 	}
 	if (count > len)
-		return 1;
-	return 0;
+		return (1);
+	return (0);
 }
 
-void ft_error(void)
+void	ft_error(void)
 {
-	write(1, "Error\n", 6);
+	write(2, "Error\n", 6);
 	exit(1);
 }
 
-int nbr(char **str, int n)
+int	nbr(char **str, int n)
 {
-	int f = 0;
-	int i = 1;
-	t_split len;
+	int		f;
+	int		i;
+	t_split	len;
+
+	f = 0;
+	i = 1;
 	while (i < n)
 	{
 		len = ft_split(str[i], ' ');
+		ft_free_table(len.strings, len.num);
 		f = f + len.num;
-		i ++;
+		i++;
 	}
-	return f;
+	return (f);
+}
+
+int	ft_strlen(const char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }
